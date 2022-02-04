@@ -404,7 +404,7 @@ def _mirror(bot, update, isZip=False, extract=False, isQbit=False, isLeech=False
             content_type = get_content_type(link)
         if content_type is None or match(r'application/x-bittorrent|application/octet-stream', content_type):
             try:
-                resp = requests.get(link, timeout=10)
+                resp = requests.get(link, timeout=60)
                 if resp.status_code == 200:
                     file_name = str(time()).replace(".", "") + ".torrent"
                     with open(file_name, "wb") as t:
